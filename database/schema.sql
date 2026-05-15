@@ -9,11 +9,12 @@ GO
 -- ============================================================
 CREATE TABLE Users (
   id            UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
-  provider      NVARCHAR(20)  NOT NULL,        -- 'google' | 'facebook' | 'apple'
+  provider      NVARCHAR(20)  NOT NULL,        -- 'google' | 'facebook' | 'apple' | 'whatsapp'
   provider_id   NVARCHAR(255) NOT NULL,
   display_name  NVARCHAR(255),
   email         NVARCHAR(255),
   avatar_url    NVARCHAR(500),
+  phone_number  NVARCHAR(20),                  -- E.164 format e.g. +447700900000
   home_address  NVARCHAR(500),
   home_lat      FLOAT,
   home_lng      FLOAT,
@@ -66,10 +67,11 @@ CREATE TABLE LiftRequests (
 GO
 
 -- ============================================================
--- Indexes for common queries
+-- Indexes
 -- ============================================================
-CREATE INDEX IX_Lifts_DepartureTime ON Lifts(departure_time);
-CREATE INDEX IX_Lifts_DriverId      ON Lifts(driver_id);
-CREATE INDEX IX_LiftRequests_LiftId ON LiftRequests(lift_id);
-CREATE INDEX IX_LiftRequests_PassId ON LiftRequests(passenger_id);
+CREATE INDEX IX_Lifts_DepartureTime  ON Lifts(departure_time);
+CREATE INDEX IX_Lifts_DriverId       ON Lifts(driver_id);
+CREATE INDEX IX_LiftRequests_LiftId  ON LiftRequests(lift_id);
+CREATE INDEX IX_LiftRequests_PassId  ON LiftRequests(passenger_id);
+CREATE INDEX IX_Users_PhoneNumber    ON Users(phone_number);
 GO
