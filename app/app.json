@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "N1Lift",
+    "slug": "n1lift",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E3A5F"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.n1lift.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "N1Lift needs your location to find nearby lifts."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1E3A5F"
+      },
+      "package": "com.n1lift.app",
+      "permissions": ["ACCESS_FINE_LOCATION"]
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": { "compileSdkVersion": 34 },
+          "ios": { "deploymentTarget": "14.0" }
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "http://localhost:3000",
+      "googleMapsApiKey": "YOUR_GOOGLE_MAPS_API_KEY",
+      "googleClientId": "YOUR_GOOGLE_CLIENT_ID",
+      "facebookAppId": "YOUR_FACEBOOK_APP_ID"
+    }
+  }
+}
